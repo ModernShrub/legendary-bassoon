@@ -13,9 +13,8 @@ def apply_md5():
     name=os.path.basename(txtfile)
     formattedname=name.split('.')[0]
     para = rtxtfile.read()
-    bpara = para.hex()
-    bpara = bytes.fromhex(para)
-    hfile = hashlib.md5(bpara.encode())
+    hfile = hashlib.md5(para.encode())
+    hfile = hfile.hexdigest()
     efile = open(str(formattedname)+"md5"+".txt", 'w')
     efile.write(str(hfile))
     print("MD5 function")
@@ -24,13 +23,12 @@ def apply_md5():
 def apply_sha256():
     txtfile = fd.askopenfilename(title="Open File",
                                          filetypes=(("Text Files", "*.txt"),))
-    rtxtfle = open(txtfile, 'r')
+    rtxtfile = open(txtfile, 'r')
     name=os.path.basename(txtfile)
     formattedname=name.split('.')[0]
-    para = txtfile.read()
-    bpara = bytes.para
-    bpara = bpara.hex()
-    hfile = hashlib.sha256(bpara.encode())
+    para = rtxtfile.read()
+    hfile = hashlib.sha256(para.encode())
+    hfile = hfile.hexdigest()
     efile = open(str(formattedname)+"sha256"+".txt", 'w')
     efile.write(str(hfile))
     print("SHA function")   
